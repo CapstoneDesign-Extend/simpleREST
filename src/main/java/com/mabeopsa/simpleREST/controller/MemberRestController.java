@@ -1,4 +1,4 @@
-package controller;
+package com.mabeopsa.simpleREST.controller;
 
 
 import com.mabeopsa.simpleREST.model.Member;
