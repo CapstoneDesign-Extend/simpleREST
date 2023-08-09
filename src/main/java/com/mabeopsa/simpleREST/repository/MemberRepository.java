@@ -3,6 +3,7 @@ package com.mabeopsa.simpleREST.repository;
 
 
 
+import com.mabeopsa.simpleREST.model.Comment;
 import com.mabeopsa.simpleREST.model.Member;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
@@ -16,12 +17,12 @@ import java.util.List;
 import java.util.Optional;
 
 //@Slf4j
-@Repository // 자동으로 스프링 bean으로 사용됨
+@Repository // 자동으로 스프링 bean 으로 사용됨
 @RequiredArgsConstructor
 public class MemberRepository { // repository 패키지는 DB에 접근하는 모든 코드가 모여있음
 
-    @PersistenceContext // EntityManager를 주입받기 위해 사용
-    private EntityManager em;  // EntityManager는 인터페이스가 아니라 구체적인 클래스이므로 final필드로 주입받는 것이 권장되지 않는다고 함
+    @PersistenceContext // EntityManager 를 주입받기 위해 사용
+    private EntityManager em;  // EntityManager 는 인터페이스가 아니라 구체적인 클래스이므로 final 필드로 주입받는 것이 권장되지 않는다고 함
 
     @Transactional
     public Member save(Member member) { //== 멤버 객체를 반환하는 것으로 변경 ==//
@@ -87,12 +88,12 @@ public class MemberRepository { // repository 패키지는 DB에 접근하는 �
         }
     }
 
-//    public List<Comment> findCommentsByMemberId(Long memberId) { // 멤버 ID를 매개변수로 받아 해당 멤버와 연결된 댓글 목록을 조회
-//        String jpql = "SELECT c FROM Member m JOIN m.comments c WHERE m.id = :memberId";
-//        TypedQuery<Comment> query = em.createQuery(jpql, Comment.class);
-//        query.setParameter("memberId", memberId);
-//        return query.getResultList();
-//    }
+    public List<Comment> findCommentsByMemberId(Long memberId) { // 멤버 ID를 매개변수로 받아 해당 멤버와 연결된 댓글 목록을 조회
+        String jpql = "SELECT c FROM Member m JOIN m.comments c WHERE m.id = :memberId";
+        TypedQuery<Comment> query = em.createQuery(jpql, Comment.class);
+        query.setParameter("memberId", memberId);
+        return query.getResultList();
+    }
 
 
 

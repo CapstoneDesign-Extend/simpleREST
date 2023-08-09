@@ -25,6 +25,9 @@ dependencies {
 	annotationProcessor 'org.projectlombok:lombok'
 	// jdbc
 	runtimeOnly 'com.mysql:mysql-connector-j'
+	// validator: active Bean Validation & Validation Check
+	implementation group: 'org.springframework.boot', name: 'spring-boot-starter-validation'
+
 
 }
 

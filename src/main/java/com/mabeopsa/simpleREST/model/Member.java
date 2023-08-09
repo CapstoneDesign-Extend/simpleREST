@@ -2,8 +2,7 @@ package com.mabeopsa.simpleREST.model;
 
 import jakarta.persistence.*;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,27 +19,28 @@ public class Member { // 회원 클래스
     private int studentId; // 학번
     private String name; // 회원 이름
     private String schoolName; // 회원 학교
-    //private Access access; // 주어질 권한
+    @Enumerated(EnumType.STRING) // db에 저장할 때, 열거형의 순서(상수)가 아닌 열거형의 이름으로 저장
+    private Access access; // 주어질 권한
     @Column(unique=true) //== 유니크 속성을 부여하여 중복으로 아이디를 만드는 것을 방지함 ==/
     private String loginId; // 로그인 시 아이디
     private String password; // 로그인 시 비밀번호
-//    @OneToMany(mappedBy = "member") // mappedBy : 연관관계 주인이 누구인지 상태 테이블 속성이름으로 명시해줌
-//    private List<Board> board = new ArrayList<>();
-//    @OneToMany(mappedBy = "member") // mappedBy : 연관관계 주인이 누구인지 상태 테이블 속성이름으로 명시해줌
-//    private List<Comment> comments = new ArrayList<>();
-//    @OneToMany(mappedBy = "member")
-//    private List<Timetable> timetables = new ArrayList<>(); // 한 명의 사용자는 여러 시간표를 가질 수 있음
-//    @OneToMany(mappedBy = "member")
-//    private List<Notification> notifications = new ArrayList<>(); // 한 명의 사용자는 여러 알림을 받음
+    @OneToMany(mappedBy = "member") // mappedBy : 연관관계 주인이 누구인지 상태 테이블 속성이름으로 명시해줌
+    private List<Board> board = new ArrayList<>();
+    @OneToMany(mappedBy = "member") // mappedBy : 연관관계 주인이 누구인지 상태 테이블 속성이름으로 명시해줌
+    private List<Comment> comments = new ArrayList<>();
+    @OneToMany(mappedBy = "member")
+    private List<Timetable> timetables = new ArrayList<>(); // 한 명의 사용자는 여러 시간표를 가질 수 있음
+    @OneToMany(mappedBy = "member")
+    private List<Notification> notifications = new ArrayList<>(); // 한 명의 사용자는 여러 알림을 받음
 
 
     //-- 연관관계 편의 메소드 --//
-//    public void addTimetable(Timetable timetable){ //-- 스케쥴 저장 --//
-//        this.timetables.add(timetable);
-//    }
-//    public void addComment(Comment comment){ //-- 작성된 댓글 저장 --//
-//        this.comments.add(comment);
-//    }
+    public void addTimetable(Timetable timetable){ //-- 스케쥴 저장 --//
+        this.timetables.add(timetable);
+    }
+    public void addComment(Comment comment){ //-- 작성된 댓글 저장 --//
+        this.comments.add(comment);
+    }
 
     public Member(Long id) {
         this.id = id;
