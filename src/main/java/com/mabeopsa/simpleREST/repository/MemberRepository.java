@@ -40,6 +40,37 @@ public class MemberRepository { // repository 패키지는 DB에 접근하는 �
     }
 
     @Transactional
+    public Optional<Member> findByEmail(String email) {
+        try {
+            // JPQL 쿼리를 사용하여 해당 loginId를 가진 Member 객체 조회
+            // 결과가 없을 경우 NoResultException 예외가 발생하므로 try-catch 블록으로 처리
+            return Optional.ofNullable(em.createQuery("SELECT m FROM Member m WHERE m.email = :email", Member.class)
+                    .setParameter("email", email)
+                    .getSingleResult());
+        } catch (NoResultException e) {
+            // 조회 결과가 없을 경우 Optional.empty() 반환
+            return Optional.empty();
+        }
+    }
+
+    public String findPasswordByEmailAndLoginId(String email, String loginId) { //== password를 찾기 위한 sql 쿼리문임 ==//
+        // JPQL을 사용하여 조건에 해당하는 Member 찾음
+        Member member = em.createQuery(
+                        "SELECT m FROM Member m WHERE m.email = :email AND m.loginId = :loginId", Member.class)
+                .setParameter("email", email)
+                .setParameter("loginId", loginId)
+                .getResultList()
+                .stream()
+                .findFirst()
+                .orElse(null);
+
+        if (member != null) {
+            return member.getPassword(); // 해당 조건에 맞는 member가 있는 경우 password를 반환함
+        } else {
+            return null; // 해당 조건으로 멤버를 찾을 수 없는 경우
+        }
+    }
+    @Transactional
     public List<Member> findAll(){ //-- 저장된 회원을 리스트 형식으로 찾음 --//
         // JPA는 객체를 대상으로 쿼리문을 작성 => 메소드 인자 중 두 번째 인자가 타입을 나타냄
         List<Member> result = em.createQuery("select m from Member m", Member.class)

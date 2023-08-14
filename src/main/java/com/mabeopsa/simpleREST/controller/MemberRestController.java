@@ -55,6 +55,18 @@ public class MemberRestController {
         // 조회된 회원 정보를 200 응답과 함께 반환
         return ResponseEntity.ok(optionalMember.get());
     }
+    //  이메일로 회원 정보를 조회하는 API 엔드포인트
+    @GetMapping("/byEmail/{email}")
+    public ResponseEntity<Member> getMemberByEmail(@PathVariable String email) {
+        // MemberRepository를 사용하여 해당 이메일의 회원 정보를 조회
+        Optional<Member> optionalMember = memberRepository.findByEmail(email);
+        // 조회된 회원 정보가 없을 경우 404 응답 반환
+        if (optionalMember.isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        // 조회된 회원 정보를 200 응답과 함께 반환
+        return ResponseEntity.ok(optionalMember.get());
+    }
 
     // 모든 회원 정보를 조회하는 API 엔드포인트
     @GetMapping
