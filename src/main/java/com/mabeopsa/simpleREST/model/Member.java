@@ -15,7 +15,7 @@ public class Member { // 회원 클래스
     @GeneratedValue(strategy = GenerationType.IDENTITY) // @GeneratedValue : 자동 생성 => 시퀀스 값 같은
     @Column(name = "member_id")
     private Long id; // 임의로 사용할 키값
-    @Column(unique=true, name = "student_id")
+    @Column(name = "student_id")
     private int studentId; // 학번
     private String name; // 회원 이름
     private String schoolName; // 회원 학교

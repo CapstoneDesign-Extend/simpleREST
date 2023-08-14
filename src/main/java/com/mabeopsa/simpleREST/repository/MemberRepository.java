@@ -57,14 +57,13 @@ public class MemberRepository { // repository 패키지는 DB에 접근하는 �
                 .getResultList();
     }*/
     @Transactional
-    public Member findByStudentId(int studentId){ // 학번으로 회원을 찾음
-        // JPQL 쿼리를 사용하여 해당 studentId를 가진 Member 객체 조회
-        // 결과가 없으면 null을 반환
+    public List<Member> findAllByStudentId(int studentId) {
+        // JPQL 쿼리를 사용하여 해당 studentId를 가진 Member 객체들을 조회
         List<Member> members = em.createQuery("SELECT m FROM Member m WHERE m.studentId = :studentId", Member.class)
                 .setParameter("studentId", studentId)
                 .getResultList();
 
-        return members.isEmpty() ? null : members.get(0);
+        return members;
     }
 
     /*public Optional<Member> findByLoginId(String loginId) { //-- logId 필드로 찾고 해당 결과 반환 --//
