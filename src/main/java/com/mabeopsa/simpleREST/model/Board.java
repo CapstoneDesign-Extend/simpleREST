@@ -26,8 +26,8 @@ public class Board { // 게시판 클래스
     @Column(name = "view_count")
     private int viewcnt; // 조회수
     private LocalDateTime finalDate; // 최종 등록된 날짜
-    @Enumerated(EnumType.STRING) // 데이터값을 int가 아닌 String으로 나오게 함
-    private Kind kind; // 게시판 종류
+    @Enumerated(EnumType.STRING) // DB에 저장할때, enum 각각 요소의 순서(상수)가 아닌, 문자열로 저장
+    private BoardKind boardKind; // 게시판 종류
     @OneToMany(mappedBy = "board", cascade = ALL, orphanRemoval = true) // mappedBy : 연관관계 주인이 누구인지 상태 테이블 속성이름으로 명시해줌
     //== 게시글을 삭제하면 달려있는 댓글 모두 삭제 ==//
     private List<Comment> comments = new ArrayList<>();
@@ -37,9 +37,9 @@ public class Board { // 게시판 클래스
 
 
     //== 생성 메소드 --//
-    public static Board createBoard(Kind kind){ // 어떤 게시판의 게시글인지 알기 위해 사용
+    public static Board createBoard(BoardKind boardKind){ // 어떤 게시판의 게시글인지 알기 위해 사용
         Board board = new Board();
-        board.setKind(kind);
+        board.setBoardKind(boardKind);
 
         return board;
     }
