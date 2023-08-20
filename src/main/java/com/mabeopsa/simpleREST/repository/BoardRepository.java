@@ -2,8 +2,10 @@ package com.mabeopsa.simpleREST.repository;
 
 import com.mabeopsa.simpleREST.model.Board;
 import com.mabeopsa.simpleREST.model.BoardKind;
+import com.mabeopsa.simpleREST.model.Member;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
@@ -20,7 +22,12 @@ public class BoardRepository {
     @PersistenceContext // EntityManager를 주입받기 위해 사용
     private final EntityManager em;
 
+    @Transactional
     public void save(Board board){ // 게시글 저장
+        // Board 엔티티를 생성할 떄, 영속 상태가 아닌 Member 엔티티를 사용중이라면 해당 Member 엔티티를 영속 상태로 만들기
+        if (board.getMember() != null && board.getMember().getId() != null){
+            board.setMember(em.getReference(Member.class, board.getMember().getId()));
+        }
         em.persist(board);
     }
 

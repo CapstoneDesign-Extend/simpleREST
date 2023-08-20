@@ -1,5 +1,7 @@
 package com.mabeopsa.simpleREST.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import lombok.Data;
@@ -29,6 +31,7 @@ public class Member { // 회원 클래스
     @Email(message = "유효하지 않은 이메일입니다.")
     private String email;
     @OneToMany(mappedBy = "member") // mappedBy : 연관관계 주인이 누구인지 상태 테이블 속성이름으로 명시해줌
+    @JsonManagedReference  // Board엔티티를 직렬화할 때 연관된 엔티티 클래스의 정보는 직렬화하지 않도록 하여 순환 참조로 인한 무한루프 방지
     private List<Board> board = new ArrayList<>();
     @OneToMany(mappedBy = "member") // mappedBy : 연관관계 주인이 누구인지 상태 테이블 속성이름으로 명시해줌
     private List<Comment> comments = new ArrayList<>();

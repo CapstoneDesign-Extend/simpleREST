@@ -4,6 +4,7 @@ package com.mabeopsa.simpleREST.controller;
 import com.mabeopsa.simpleREST.model.Board;
 import com.mabeopsa.simpleREST.model.BoardKind;
 import com.mabeopsa.simpleREST.repository.BoardRepository;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,6 +20,7 @@ public class BoardRestController {
 
     // 게시글 생성 API 엔드포인트
     @PostMapping
+    @Transactional
     public ResponseEntity<Board> createBoard(@RequestBody Board board) {
         // 게시글을 생성하는 API 엔드포인트로, 요청 바디에서 받은 board 객체를 boardRepository의 save 메소드를 호출하여 데이터베이스에 저장함
         // 저장된 게시글 정보를 ResponseEntity로 포장하여 반환함
