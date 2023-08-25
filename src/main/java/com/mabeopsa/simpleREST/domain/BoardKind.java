@@ -1,4 +1,4 @@
-package com.mabeopsa.simpleREST.model;
+package com.mabeopsa.simpleREST.domain;
 
 public enum BoardKind {
    // 학과 단위 게시판 :

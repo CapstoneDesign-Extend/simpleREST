@@ -1,7 +1,7 @@
 package com.mabeopsa.simpleREST.service;
 
 
-import com.mabeopsa.simpleREST.model.Board;
+import com.mabeopsa.simpleREST.domain.Board;
 import com.mabeopsa.simpleREST.repository.BoardRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,6 +1,6 @@
 package com.mabeopsa.simpleREST.service;
 
-import com.mabeopsa.simpleREST.model.Notification;
+import com.mabeopsa.simpleREST.domain.Notification;
 import com.mabeopsa.simpleREST.repository.NotificationRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

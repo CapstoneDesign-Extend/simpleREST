@@ -1,7 +1,7 @@
 package com.mabeopsa.simpleREST.repository;
 
 
-import com.mabeopsa.simpleREST.model.Timetable;
+import com.mabeopsa.simpleREST.domain.Timetable;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;

@@ -1,8 +1,8 @@
 package com.mabeopsa.simpleREST.controller;
 
 
-import com.mabeopsa.simpleREST.model.Comment;
-import com.mabeopsa.simpleREST.model.Member;
+import com.mabeopsa.simpleREST.domain.Comment;
+import com.mabeopsa.simpleREST.domain.Member;
 import com.mabeopsa.simpleREST.repository.CommentRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;

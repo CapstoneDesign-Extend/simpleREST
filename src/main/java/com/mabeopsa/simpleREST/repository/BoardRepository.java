@@ -1,8 +1,8 @@
 package com.mabeopsa.simpleREST.repository;
 
-import com.mabeopsa.simpleREST.model.Board;
-import com.mabeopsa.simpleREST.model.BoardKind;
-import com.mabeopsa.simpleREST.model.Member;
+import com.mabeopsa.simpleREST.domain.Board;
+import com.mabeopsa.simpleREST.domain.BoardKind;
+import com.mabeopsa.simpleREST.domain.Member;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;

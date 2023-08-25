@@ -1,7 +1,7 @@
 package com.mabeopsa.simpleREST.service;
 
 
-import com.mabeopsa.simpleREST.model.File;
+import com.mabeopsa.simpleREST.domain.File;
 import com.mabeopsa.simpleREST.repository.FileRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

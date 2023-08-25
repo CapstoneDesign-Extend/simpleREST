@@ -1,8 +1,8 @@
 package com.mabeopsa.simpleREST.controller;
 
 
-import com.mabeopsa.simpleREST.model.Board;
-import com.mabeopsa.simpleREST.model.BoardKind;
+import com.mabeopsa.simpleREST.domain.Board;
+import com.mabeopsa.simpleREST.domain.BoardKind;
 import com.mabeopsa.simpleREST.repository.BoardRepository;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;

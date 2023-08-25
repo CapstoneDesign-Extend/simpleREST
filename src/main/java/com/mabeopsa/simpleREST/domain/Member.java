@@ -1,6 +1,5 @@
-package com.mabeopsa.simpleREST.model;
+package com.mabeopsa.simpleREST.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;

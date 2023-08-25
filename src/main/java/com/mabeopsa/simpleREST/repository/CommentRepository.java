@@ -2,9 +2,9 @@ package com.mabeopsa.simpleREST.repository;
 
 
 
-import com.mabeopsa.simpleREST.model.Board;
-import com.mabeopsa.simpleREST.model.Comment;
-import com.mabeopsa.simpleREST.model.Member;
+import com.mabeopsa.simpleREST.domain.Board;
+import com.mabeopsa.simpleREST.domain.Comment;
+import com.mabeopsa.simpleREST.domain.Member;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.Query;

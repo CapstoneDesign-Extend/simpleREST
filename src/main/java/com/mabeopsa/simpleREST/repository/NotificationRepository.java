@@ -1,8 +1,8 @@
 package com.mabeopsa.simpleREST.repository;
 
 
-import com.mabeopsa.simpleREST.model.Member;
-import com.mabeopsa.simpleREST.model.Notification;
+import com.mabeopsa.simpleREST.domain.Member;
+import com.mabeopsa.simpleREST.domain.Notification;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;

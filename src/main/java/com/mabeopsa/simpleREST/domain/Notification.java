@@ -1,4 +1,4 @@
-package com.mabeopsa.simpleREST.model;
+package com.mabeopsa.simpleREST.domain;
 
 import jakarta.persistence.*;
 import lombok.Getter;

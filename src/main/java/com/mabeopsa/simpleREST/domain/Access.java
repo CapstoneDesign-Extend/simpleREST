@@ -1,4 +1,4 @@
-package com.mabeopsa.simpleREST.model;
+package com.mabeopsa.simpleREST.domain;
 
 public enum Access {
     STUDENT, PROFESSOR, MANAGER, MEDDLE // 순서대로 학생, 교수, 관리자, 중간 관리자

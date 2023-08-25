@@ -1,7 +1,7 @@
 package com.mabeopsa.simpleREST.service;
 
 
-import com.mabeopsa.simpleREST.model.Timetable;
+import com.mabeopsa.simpleREST.domain.Timetable;
 import com.mabeopsa.simpleREST.repository.TimetableRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
